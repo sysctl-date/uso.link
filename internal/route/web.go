@@ -8,6 +8,7 @@ import (
 func WebRule(c *gin.Engine) {
 	c.LoadHTMLGlob("vcp/*")
 	c.Static("/static", "public/static/")
+	c.StaticFile("/ads.txt", "public/ads.txt")
 	c.GET("/sitemap.xml", handler.XmlSiteMap)
 	c.GET("/sitemap.html", handler.HtmlSiteMap)
 	c.GET("/sitemap.txt", handler.TxtSiteMap)

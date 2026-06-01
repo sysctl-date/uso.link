@@ -2,7 +2,7 @@
 <body>{{ template "header.html" . }}
 
 <div class="container"><div class="row"><div class="col-md-12"><div class="accordion" id="accordion2"><div class="accordion-group"><!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
-{{ .siblings }}<div class="panel">
+{{ .siblings }}<header class="tool-head"><h1>在线涂鸦画板</h1><p class="lead">在浏览器里随手画几笔。笔迹用 1€ 滤波去抖、按运笔速度自动变粗细，起收笔自然收锋；可切换钢笔、毛笔、马克笔、铅笔四种笔触，画完一键存成 PNG。</p></header><div class="panel">
 
 <div style="width: 100%;"><canvas id="canvas" width="1000" height="500">您的浏览器不支持CANVAS</canvas></div>
 			<div class="tool">
@@ -26,7 +26,14 @@
 					<div data-size="20"><span style="width:20px;"></span></div>
 					<div data-size="25"><span style="width:25px;"></span></div>
 				</div>
-				
+
+				<div class="brush">
+					<div class="active" data-brush="pen">钢笔</div>
+					<div data-brush="ink">毛笔</div>
+					<div data-brush="marker">马克</div>
+					<div data-brush="pencil">铅笔</div>
+				</div>
+
 				<div class="btntool">
 					<input type="button" value="清 空" class="btn btn-primary" onclick="clearAll();" />
 				</div>
@@ -38,11 +45,9 @@
 				</div>
 			</div>
 	</div>
-	</div></div><div class="alert alert alert-success alert-dismissible"><h4>在线涂鸦画板</h4><p>在线涂鸦画板为您提供在线画画,在线涂鸦,在线画布涂鸦,涂鸦自定义颜色,调色功能,涂鸦颜色选择功能,在这里您可以尽情的发挥您的画画艺术天赋,画出您想要的涂鸦之作,涂鸦完成后可以保存到本地。</p></div> <div class="accordion-group"> </div></div></div></div></div><script src="/static/script/jquery-1.11.3.min.js" type="text/javascript"></script><script src="/static/script/bootstrap.min.js" type="text/javascript"></script><script src="/static/script/tool.js" type="text/javascript"></script>
-	<script src="/static/script/huaban/zepto.min.js"></script>
-	<script src="/static/script/huaban/ocanvas.min.js"></script>
-	<script src="/static/script/huaban/ga.js"></script>
+	</div></div><article class="tool-doc"><h2>笔触是怎么算出来的</h2><p>很多网页画板把鼠标轨迹直接连成折线，所以线条又抖又生硬。这里换了套画法：先用 <strong>1€ 滤波</strong>（Casiez 等人 2012 年提出的输入降抖算法）压掉手抖——慢慢画时强平滑，快速画时仍然跟手；再按<strong>运笔速度</strong>实时改变笔宽，画得慢线条粗、画得快线条细，起笔收笔自动收锋，接近真实蘸墨笔的手感。用数位笔时直接读取压感。</p><p>四种笔触各有质感：钢笔均匀利落，毛笔粗细对比更强，马克笔半透明叠色，铅笔带颗粒石墨纹理。颜色、粗细随时切换，<code>Ctrl+Z</code> 撤销，<code>Ctrl+S</code> 或“保存”导出 PNG。所有绘制都在你的浏览器本地完成，不会上传。</p></article> <div class="accordion-group"> </div></div></div></div></div><script src="/static/script/jquery-1.11.3.min.js" type="text/javascript"></script><script src="/static/script/bootstrap.min.js" type="text/javascript"></script><script src="/static/script/tool.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/static/script/huaban/hotkeys.js"></script>
+	<script src="/static/script/usolink-brush.js"></script>
 			<script type="text/javascript">
 				hotkeys('ctrl+z', function(){
 				    re_draw();
@@ -54,23 +59,26 @@
 			</script>
  
  <style>
-.tool{position:absolute; top:200px; left:16px; border:solid 1px #aaa; background-color:#eee; border-radius:5px; padding-right:5px;}
-.tool .color {float:left; margin:5px; width:30px;}
-.tool .color div{width:24px; height:24px; border:solid 2px #aaa; margin-bottom:5px; opacity:0.5;}
-.tool .color div:hover{opacity:1; cursor:pointer;}
-.tool .color .active{opacity:1; border:solid 2px #000;}
+.tool{position:absolute; top:120px; left:16px; border:1px solid #e4e4de; background:#fff; border-radius:10px; padding:8px 8px 4px;}
+.tool .color{float:left; margin:4px; width:32px;}
+.tool .color div{width:26px; height:26px; border:2px solid #d2d2c9; border-radius:6px; margin-bottom:5px; opacity:.55; cursor:pointer;}
+.tool .color div:hover{opacity:1;}
+.tool .color .active{opacity:1; border-color:#26262a;}
 
-.tool .size {float:left; margin:5px; width:30px; margin-left:0;}
-.tool .size div{width:30px; height:30px; border:solid 2px #aaa; margin-bottom:5px; opacity:0.5;}
-.tool .size div:hover{opacity:1; cursor:pointer;}
-.tool .size .active{opacity:1; border:solid 2px #000;}
-.tool .size span{display:block; margin:3px auto; height:24px; background-color:black;}
+.tool .size{float:left; margin:4px 4px 4px 0; width:34px;}
+.tool .size div{width:32px; height:30px; border:2px solid #d2d2c9; border-radius:6px; margin-bottom:5px; opacity:.55; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+.tool .size div:hover{opacity:1;}
+.tool .size .active{opacity:1; border-color:#26262a;}
+.tool .size span{display:block; height:24px; background:#26262a; border-radius:4px;}
+
+.tool .brush{clear:both; padding-top:4px;}
+.tool .brush div{font-size:12px; color:#6f6f76; text-align:center; padding:5px 0; margin-bottom:5px; border:1px solid #e4e4de; border-radius:6px; cursor:pointer;}
+.tool .brush div:hover{color:#26262a; border-color:#d2d2c9;}
+.tool .brush .active{color:#fff; background:#26262a; border-color:#26262a;}
 
 .btntool {clear:both; margin-bottom:5px; text-align:center;}
-.btntool input {padding:3px 15px;}
-#canvas {
-    border:1px solid #E5E5DB;width: 100%;
-}
+.btntool input {padding:4px 14px;}
+#canvas {border:1px solid #e4e4de; border-radius:10px; width:100%; background:#fff; touch-action:none; cursor:crosshair;}
 </style>
  {{ template "nav.html" . }}
 

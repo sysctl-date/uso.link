@@ -1,12 +1,14 @@
-# 优速网
+# uso.link
 
-150+ 款常用在线工具的合集：JSON、编码加解密、格式化、正则、单位换算、对照速查等。全部在浏览器本地运行，免登录、不上传。
+**English** | [中文](README.zh-CN.md)
 
-线上站点：<https://uso.link>
+A collection of 150+ everyday online tools: JSON, encode/decode, formatting, regex, unit conversion, lookup tables, and more. Everything runs locally in the browser, with no login and no uploads.
 
-## 本地运行
+Live site: <https://uso.link>
 
-需要 Go 1.22+。
+## Run locally
+
+Requires Go 1.22+.
 
 ```bash
 git clone https://github.com/sysctl-date/uso.link.git
@@ -15,13 +17,13 @@ go build .
 ./web
 ```
 
-服务监听 `0.0.0.0:12345`，生产环境可在前面挂 nginx 反代到 80/443。
+The server listens on `0.0.0.0:12345`. In production, put nginx in front to reverse-proxy 80/443.
 
-## 截图
+## Screenshots
 
-![首页](sc1.png)
-![工具分类](sc2.png)
+![Home](sc1.png)
+![Tool categories](sc2.png)
 
-## 致谢
+## Credits
 
-页面 HTML 结构参考自 <https://hostloc.com/forum.php?mod=viewthread&tid=1351049>
+HTML structure adapted from <https://hostloc.com/forum.php?mod=viewthread&tid=1351049>

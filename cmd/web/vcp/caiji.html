@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-        <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-        <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>
 {{ template "header.html" . }}
 
@@ -55,6 +34,10 @@
                             </ul>
                         </li>
                     </ul>
+                    <header class="tool-head">
+                        <h1>网页正文采集</h1>
+                        <p class="lead">输入一个网址，抓取该页面的标题和正文文字，方便复制到下方编辑器里整理。抓取在服务器端发起，仅适用于公开可访问的网页。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" action="" class="form-horizontal" method="post">
                             <div class="input-group mb5">
@@ -69,10 +52,11 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>文章内容采集</h4>
-                    <p>
-                        文章采集器为您提供文章采集,数据采集,网页无法复制工具,文章编辑工具,信息采集,在线采集器,在线采集网页内容,采集文章内容,采集文章,采集内容,采集信息等,只要输入网址,点击采集网页,即可采集到目标网页的文章内容和标题,方便编辑文章内容。</p>
-                </div>
+                <article class="tool-doc">
+                    <h2>用途与注意</h2>
+                    <p>遇到设置了禁止复制、或排版杂乱的网页时，可以用它把正文文字抓出来，再在下方编辑器里删改、调整格式。抓回的内容会保留基本结构，图片和脚本一般不会带过来。</p>
+                    <p>采集只对公开页面有效，需要登录、付费或做了反爬限制的页面可能抓不全或抓不到。使用时请遵守对方网站的版权与使用条款，仅将采集结果用于个人整理用途。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

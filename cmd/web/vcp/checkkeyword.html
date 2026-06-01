@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -26,26 +7,11 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">更多工具<span class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-                                                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>网页关键词密度检测</h1>
+                        <p class="lead">输入网址和关键词，由服务器抓取页面文本，统计该词出现的次数并算出它占全文的密度百分比。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1help" class="form-horizontal" method="post">
                             <div class="form-group">
@@ -158,8 +124,11 @@
 
 
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4> 网页关键词密度检测工具</h4>
-                    <p>为您提供在线关键词密度检测查询,检测关键词的密度百分比，可以快速检测页面关键词出现的数量和密度，更适合蜘蛛的搜索。</p></div>
+                <article class="tool-doc">
+                    <h2>关键词密度是什么</h2>
+                    <p>关键词密度指某个词在页面正文中所占的比例，等于“关键词总字符长度 ÷ 页面文本总长度”。它常被当作判断内容相关性的一个参考指标：太低说明该词出现不足，太高则可能被判定为堆砌。</p>
+                    <p>这里把 2%–8% 作为常见的参考区间，结果会标注偏高、偏低或在合理范围。提交后由服务器抓取目标网址的可见文本进行统计，密度只是辅助参考，自然、可读的内容比刻意凑数字更重要。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

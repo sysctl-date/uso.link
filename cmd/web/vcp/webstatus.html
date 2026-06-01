@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -27,29 +7,11 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-                                                <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-
-                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>HTTP 状态码在线查询</h1>
+                        <p class="lead">输入网址，由服务器代为发起请求，返回该页面的 HTTP 状态码、服务器 IP 和响应头，用来判断页面是正常、跳转还是出错。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="input-group mb5" style="width:85%"><input class="form-control" type="text"
@@ -87,13 +49,21 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>HTTP状态查询工具</h4>
-                    <p>常见的HTTP状态码</p>
-                    <p>200 - 服务器成功返回网页 404 - 请求的网页不存在 503 - 服务不可用 </p>
-                    <p>301 redirect: 301 代表永久性转移(Permanently Moved)</p>
-                    <p>302 redirect: 302 代表暂时性转移(Temporarily Moved )。</p>
-                    <p><a href="/pagecode/" target="_blank">查看所有HTTP状态码解释</a></p>
-                </div>
+                <article class="tool-doc">
+                    <h2>常见状态码怎么读</h2>
+                    <p>查询由本站服务器对目标网址发起，因此即使该网址在你本地打不开，只要服务器能访问，也能拿到结果。返回的状态码反映服务端对这次请求的处理结果：</p>
+                    <table class="table table-hover table-bordered table-striped">
+                        <tbody>
+                        <tr><td style="width:120px">200</td><td>请求成功，正常返回网页</td></tr>
+                        <tr><td>301</td><td>永久重定向，资源已换到新地址</td></tr>
+                        <tr><td>302</td><td>临时重定向，资源暂时在别处</td></tr>
+                        <tr><td>404</td><td>请求的页面不存在</td></tr>
+                        <tr><td>500</td><td>服务器内部错误</td></tr>
+                        <tr><td>503</td><td>服务不可用，常见于过载或维护</td></tr>
+                        </tbody>
+                    </table>
+                    <p><a href="/pagecode/" target="_blank">查看全部 HTTP 状态码解释</a></p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+{{ template "head.html" . }}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>
-        {{ .title }}
-    </title>
-    <meta name="applicable-device" content="pc,mobile" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"
-    />
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"
-    />
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js">
-    </script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js">
-    </script>
-    <![endif]-->
-</head>
 
 <body>
 {{ template "header.html" . }}
@@ -36,83 +9,11 @@
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
                     <!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
-                    <ul class="nav nav-tabs hbflag">
-                        <li role="presentation" class="active">
-                            <a href="/json.html">
-                                Json格式化
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/jsonudview.html">
-                                Json格式化(上下)
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/jsonlrview.html">
-                                Json格式化(左右)
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/jsonzip.html">
-                                Json在线压缩转义
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/json2cs.html">
-                                Json生成C#实体类
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/json2java.html">
-                                Json生成Java实体类
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/json2go.html">
-                                Json生成Go结构体
-                            </a>
-                        </li>
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"
-                               role="button" aria-haspopup="true" aria-expanded="false">
-                                更多工具
-                                <span class="caret">
-                                        </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation">
-                                    <a href="/sql2java.html">
-                                        SQL转Java实体类
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/json2xml.html">
-                                        XML和Json在线互转
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/excel2json.html">
-                                        Excel/CSV转Json格式
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/json2excel.html">
-                                        Json转Excel/CSV格式
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/json2get.html">
-                                        JSON和GET参数互转
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/json2yaml.html">
-                                        JSON转YAML
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>JSON 格式化与压缩</h1>
+                        <p class="lead">格式化、压缩、转义 JSON，并校验语法是否合法。处理在浏览器本地完成，数据不会上传到服务器。</p>
+                    </header>
                     <div class="panel panel-defaul">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="input-group mb5">
@@ -161,14 +62,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible">
-                    <h2 class="f20">
-                        json在线解析及格式化工具介绍
-                    </h2>
-                    <p>
-                        JSON 可以将程序语言对象中表示的一组数据转换为字符串，然后就可以在网络或者程序之间轻松地传递这个字符串，并在需要的时候将它还原为各编程语言所支持的数据格式，例如在
-                        PHP 中，可以将 JSON还原为数组或者一个基本对象。在用到AJAX时，如果需要用到数组传值，这时就需要用JSON将数组转化为字符串
-                </div>
+                <article class="tool-doc">
+                    <h2>这个工具能做什么</h2>
+                    <p>JSON 是前后端和各种程序之间交换数据的常用文本格式。压缩后的 JSON 挤成一行不便阅读，本工具把它按层级缩进展开；反过来也能去掉空白压成一行以减小体积。校验会指出语法错在哪，便于排查多逗号、键名漏引号这类问题。</p>
+                    <h2 class="sub">校验不通过的常见原因</h2>
+                    <p>键名和字符串值必须用双引号、最后一项后面不能多逗号、注释不属于标准 JSON。如果是从代码里复制的字符串，记得先用“去除转义”把多余的反斜杠还原，再做格式化。</p>
+                </article>
                 <div class="accordion-group">
                 </div>
             </div>

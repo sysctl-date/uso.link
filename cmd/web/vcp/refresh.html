@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -28,29 +8,11 @@
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
                     <!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-
-                                                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>网页定时自动刷新</h1>
+                        <p class="lead">填入网址和间隔秒数，页面会按你设定的频率在下方的内嵌窗口里自动重新加载，并记录已刷新次数。计时在浏览器本地运行。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" class="form-horizontal" action="" method="post">
                             <div class="form-group"><label class="col-sm-2 control-label"> 刷新网址： </label>
@@ -92,10 +54,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>在线定时自动刷新网页</h4>
-                    <p>1,在线定时刷新网址,定时刷新网页增加网页请求量,可在线测试网页压力,可自定义刷新间隔时间</p>
-                    <p>2,如果间隔时间太短，本工具可能会给你的网站带来一些访问压力。</p>
-                    <p>3,请不要恶意操作刷新别的网站,文明友善地使用本工具</p></div>
+                <article class="tool-doc">
+                    <h2>怎么用</h2>
+                    <p>把要刷新的网址填进“刷新网址”，再设定刷新频率（多少秒刷一次），点“开始刷新”，目标页面会在下方的内嵌窗口里按这个节奏不断重新加载，“已刷新次数”会同步累加。想停下来点“停止刷新”即可。</p>
+                    <h2 class="sub">注意点</h2>
+                    <p>间隔设得太短会向目标网站发出密集请求，可能给对方服务器带来压力，请只对自己的站点这样做，并把间隔设在合理范围。另外，很多网站会用 <code>X-Frame-Options</code> 等响应头禁止被嵌入到 iframe 中，遇到这种网址，下方窗口会显示空白或报错，这是对方的限制，不是工具故障。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

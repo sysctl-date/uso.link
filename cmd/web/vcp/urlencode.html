@@ -1,10 +1,79 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /><title>{{ .title }}</title><meta name="applicable-device" content="pc,mobile" /><meta http-equiv="Cache-Control" content="no-transform" /><meta http-equiv="Cache-Control" content="no-siteapp" /><meta name="keywords" content="{{ .keywords }}" /><meta name="description" content="{{ .description }}" /><meta name="renderer" content="webkit" /><meta name="apple-mobile-web-app-capable" content="yes" /><link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon" /><link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="/static/style/tool.css" rel="stylesheet" type="text/css" /><!--[if lt IE 9]><script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script><script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--></head><body>{{ template "header.html" . }}
+{{ template "head.html" . }}
+<body>
+{{ template "header.html" . }}
 
-<div class="container"><div class="row"><div class="col-md-12 col10main"><div class="accordion" id="accordion2"><div class="accordion-group"><!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
-<ul class="nav nav-tabs hbflag"><li role="presentation"><a href="/img2base64.html"> 图片转Base64</a></li><li role="presentation"><a href="/utf8.html">UTF-8转GBK</a></li><li role="presentation"><a href="/unicode.html">Unicode/ASCII转换</a></li><li role="presentation"><a href="/ascii.html">ASCII编码/解码</a></li><li role="presentation" class="active"><a href="/urlencode.html">URL编码/解码</a></li><li role="presentation"><a href="/navtiveunicode.html">Native/Unicode编码转换</a></li><li role="presentation"><a href="/keyboardcode.html">KeyCode键盘按键码</a></li><li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">更多工具<span class="caret"> </span></a><ul class="dropdown-menu"><li role="presentation"><a href="/androidkeycode.html">Android按键码</a></li><li role="presentation"><a href="/keyboardtest.html">键盘测试工具</a></li></ul></li></ul><div class="panel"><form id="form1" class="form-horizontal" method="post"><div class="form-group"><div class="col-sm-12"><textarea onmouseover="this.focus();" id="content" name="content" class="form-control" rows="10" placeholder="请输入要转换的文本"></textarea></div></div><div class="form-group"><div class="col-sm-12 text-center"><button type="button" id="encode" class="btn btn-success">UrlEncode编码</button><button type="button" id="decode" class="btn btn-success">UrlDecode解码</button><span id="copyallcode" class="btn btn-default" data-clipboard-target="#result">复制结果</span><input type="button" onclick="ClearAll();" value="清空" class="btn btn-default"></div></div><div class="form-group"><div class="col-sm-12"><pre><code id="result"></code></pre></div></div></form></div></div><div class="accordion-group"><div class="in collapse bs-docs-demoexample"><h4>URL编码解码工具</h4><p>URL编码解码工具提供UrlEncode编码,UrlDecode解码,URL网址编码解码,对Url进行编码后可以将一些特殊字符和汉字变为urlEncode编码格式,为了让包含中文的URL可以使用，您可以使用本工具对中文进行UrlEncode编码。</p></div></div> <div class="accordion-group"> </div></div></div></div></div><script src="/static/script/jquery-1.11.3.min.js" type="text/javascript"></script><script src="/static/script/bootstrap.min.js" type="text/javascript"></script><script src="/static/script/tool.js" type="text/javascript"></script><script src="/static/script/hightout.js"></script><script type="text/javascript">(function () {$("#encode").on('click', function () {hightout(encodeURIComponent($("#content").val()));});$("#decode").on('click', function () {hightout(decodeURIComponent($("#content").val()));});})()</script>{{ template "nav.html" . }}
+<main class="container">
+    <div class="row">
+        <div class="col-md-12 col10main">
+            {{ .siblings }}
+
+            <header class="tool-head">
+                <h1>URL 编码 / 解码（UrlEncode / UrlDecode）</h1>
+                <p class="lead">把网址里的中文、空格和特殊符号转成 <span class="kbd">%xx</span> 百分号编码，或把它还原成原文。
+                    基于浏览器的 encodeURIComponent / decodeURIComponent，本地运行，不经过服务器。</p>
+            </header>
+
+            <div class="panel">
+                <form id="form1" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <textarea onmouseover="this.focus();" id="content" name="content" class="form-control"
+                                      rows="10" placeholder="在此粘贴要编码的文本，或要解码的 %xx 字符串"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-center">
+                            <button type="button" id="encode" class="btn btn-success">编码（UrlEncode）</button>
+                            <button type="button" id="decode" class="btn btn-success">解码（UrlDecode）</button>
+                            <span id="copyallcode" class="btn btn-default" data-clipboard-target="#result">复制结果</span>
+                            <input type="button" onclick="ClearAll();" value="清空" class="btn btn-default">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <pre><code id="result"></code></pre>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <article class="tool-doc">
+                <h2>什么时候需要 URL 编码</h2>
+                <p>网址里只能直接出现一部分 ASCII 字符。中文、空格，以及 <code>&amp;</code> <code>?</code> <code>#</code> <code>=</code>
+                    这类有特殊含义的符号，如果原样放进网址，会被浏览器或服务器截断、误解析。先把它们转成 <code>%xx</code>
+                    形式，就能安全地放进网址、表单提交或接口参数里。</p>
+
+                <h2 class="sub">encodeURIComponent 和 encodeURI 的区别</h2>
+                <p>本工具用的是 <code>encodeURIComponent</code>，它会转义除 <code>A–Z a–z 0–9 - _ . ! ~ * ' ( )</code>
+                    以外的所有字符，<strong>包括</strong> <code>: / ? &amp; =</code> 等结构符号。所以它适合单独编码
+                    <strong>一个参数的值</strong>，例如把 <code>关键词=优速网</code> 拼进 query 之前先编码它。</p>
+                <p>如果要编码<strong>整条网址</strong>并保留 <code>:// ? &amp; =</code> 这些结构，应该用 <code>encodeURI</code>，
+                    它会保留这些分隔符。把两者用反，是 URL 拼接出问题最常见的原因。</p>
+            </article>
+        </div>
+    </div>
+</main>
+
+<script src="/static/script/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="/static/script/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/script/tool.js" type="text/javascript"></script>
+<script src="/static/script/hightout.js"></script>
+<script type="text/javascript">
+    (function () {
+        $("#encode").on('click', function () {
+            hightout(encodeURIComponent($("#content").val()));
+        });
+        $("#decode").on('click', function () {
+            hightout(decodeURIComponent($("#content").val()));
+        });
+    })()
+</script>
+
+{{ template "nav.html" . }}
 
 {{ template "link.html" . }}
 
 {{ template "footer.html" . }}
 
-</body></html>
+</body>
+</html>

@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-        <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-        <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>
 {{ template "header.html" . }}
 
@@ -29,6 +8,10 @@
         <div class="col-md-12 col10main">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
+                    <header class="tool-head">
+                        <h1>二维码在线生成</h1>
+                        <p class="lead">输入文字或网址即可实时生成对应的二维码，边输入边更新，生成过程在浏览器本地完成。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" action="" class="form-horizontal" method="post">
                             <div class="input-group mb5" style="margin: 0 auto">
@@ -42,10 +25,11 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>二维码生成</h4>
-                    <p>
-                        二维码（Quick Response Code）由日本Denso Wave公司于1994年发明，最初用于汽车制造业的零部件追踪。相比传统条形码，二维码能存储更多信息并支持快速扫描。其基本结构由黑白模块组成，包含定位图形、对齐图形、时间格式信息及数据区域。二维码采用基于矩阵的编码算法，通过将数据转换为二进制形式，并利用纠错码（如里德-所罗门码）提高抗损坏能力。扫描设备解析模块图案，解码信息，实现数据传输。二维码广泛应用于支付、广告、身份验证等多个领域，因其高效和灵活性而受到普及。</p>
-                </div>
+                <article class="tool-doc">
+                    <h2>怎么用</h2>
+                    <p>在输入框里填写要编码的内容，比如一段网址、一行文字或一段联系方式，下方的二维码会随输入即时更新，扫码后即可看到这段内容。</p>
+                    <p>二维码（Quick Response Code）由黑白模块组成，含定位、对齐图形和数据区，并带里德-所罗门纠错码，所以即使局部污损或遮挡也能被识别。内容越多、纠错级别越高，图案就越密，建议链接尽量简短以便扫描。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

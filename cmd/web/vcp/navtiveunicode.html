@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>
 {{ template "header.html" . }}
 
@@ -28,24 +8,11 @@
         <div class="col-md-12 col10main">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-                        <li role="presentation"><a href="/img2base64.html"> 图片转Base64</a></li>
-                        <li role="presentation"><a href="/utf8.html">UTF-8转GBK</a></li>
-                        <li role="presentation"><a href="/unicode.html">Unicode/ASCII转换</a></li>
-                        <li role="presentation"><a href="/ascii.html">ASCII编码/解码</a></li>
-                        <li role="presentation"><a href="/urlencode.html">URL编码/解码</a></li>
-                        <li role="presentation" class="active"><a href="/navtiveunicode.html">Native/Unicode编码转换</a></li>
-                        <li role="presentation"><a href="/keyboardcode.html">KeyCode键盘按键码</a></li>
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="/androidkeycode.html">Android按键码</a></li>
-                                <li role="presentation"><a href="/keyboardtest.html">键盘测试工具</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>Native 与 Unicode 编码互转</h1>
+                        <p class="lead">把中文等非 ASCII 文本转成 <code>&amp;#数字;</code> 形式的 Unicode 实体，或反向还原成原文，转换在浏览器本地完成。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="form-group">
@@ -77,8 +44,9 @@
                     </div>
                 </div>
                 <div class="accordion-group">
-                    <div class="in collapse bs-docs-demoexample"><h4>Native/Unicode编码在线转换工具</h4>
-                        <p>该工具提供Native与Unicode编码的在线转换功能。</p></div>
+                    <div class="in collapse bs-docs-demoexample"><article class="tool-doc"><h2>这两种写法的区别</h2>
+                        <p>Native 指原始可读的文本，比如直接写出的中文“你好”。Unicode 形式则把每个字符换成它的码点数字，写成 <code>&amp;#20320;&amp;#22909;</code> 这样的 HTML 数字实体。两者表示的是同一段内容，只是写法不同。</p>
+                        <p>当文件或传输通道只接受 ASCII、或想避免中文在不同编码间出现乱码时，可以先转成 Unicode 实体；需要阅读时再转回 Native。还原时请保持 <code>&amp;#数字;</code> 的完整格式，否则无法正确解析。</p></article></div>
                 </div>
                 <div class="accordion-group"></div>
             </div>

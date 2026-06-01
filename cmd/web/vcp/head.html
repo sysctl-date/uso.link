@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <title>{{ .title }}</title>
+    {{ if .canonical }}<link rel="canonical" href="{{ .canonical }}"/>{{ end }}
+    <meta name="keywords" content="{{ .keywords }}"/>
+    <meta name="description" content="{{ .description }}"/>
+    <meta name="applicable-device" content="pc,mobile"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="theme-color" content="#26262a"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="优速网"/>
+    <meta property="og:title" content="{{ .title }}"/>
+    <meta property="og:description" content="{{ .description }}"/>
+    {{ if .canonical }}<meta property="og:url" content="{{ .canonical }}"/>{{ end }}
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="{{ .title }}"/>
+    <meta name="twitter:description" content="{{ .description }}"/>
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/style/usolink.css" rel="stylesheet" type="text/css"/>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "{{ .title }}",
+        "description": "{{ .description }}",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+        "publisher": { "@type": "Organization", "name": "优速网", "url": "https://uso.link" }
+    }
+    </script>
+</head>

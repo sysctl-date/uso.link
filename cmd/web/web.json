@@ -202,8 +202,9 @@
   },
   "base64": {
     "title": "base64在线解码,base64编码,base64加密解密-优速网",
+    "canonical": "https://uso.link/base64.html",
     "keywords": "base64编码,base64在线解码,base64加密解密",
-    "description": "base64在线解码工具为您提供base64编码,base64在线解码,base64加密解密,对字符串进行Base64格式的加密处理,对已加密Base64在线解码解密显示为明文"
+    "description": "在浏览器本地把文本按 UTF-8 编码成 Base64，或把 Base64 还原成原文。Base64 是编码而非加密，常用于邮件、URL、Data URI 等只接受文本的场景，输入不会上传服务器。"
   },
   "gzip": {
     "title": "网页Gzip压缩检测-优速网",
@@ -497,8 +498,9 @@
   },
   "urlencode": {
     "title": "url编码解码工具,UrlEncode编码,UrlDecode解码-优速网",
+    "canonical": "https://uso.link/urlencode.html",
     "keywords": "URL编码解码工具,UrlEncode编码,UrlDecode解码,网址编码解码",
-    "description": "URL编码解码工具提供UrlEncode编码,UrlDecode解码,URL网址编码解码,对Url进行编码后可以将一些特殊字符和汉字变为urlEncode编码格式等"
+    "description": "在线对网址里的中文、空格和特殊符号做百分号编码（UrlEncode），或把 %xx 还原成原文（UrlDecode）。基于 encodeURIComponent / decodeURIComponent，浏览器本地运行。"
   },
   "asciicode": {
     "title": "ascii码表,Ascii码对照表,ascii编码-优速网",

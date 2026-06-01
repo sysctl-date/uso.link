@@ -1,0 +1,399 @@
+/* ==========================================================================
+   usolink.css — 优速网现代主题层(沉静 / 克制 / 无阴影)
+   叠加在 bootstrap.min.css + tool.css 之上,只覆盖外观,不改 Bootstrap3 类结构。
+   设计原则:
+     · 暖中性纸面 + 墨黑文字,降低视觉刺激
+     · 唯一低饱和点缀色 sage-teal,仅用于交互/激活状态,且用量极少
+     · 不使用任何阴影,只用留白 + 1px 细线框划分区域
+     · 字体用系统字体栈,不引入外部 webfont(保证离线可用 & 国内访问稳定)
+   ========================================================================== */
+
+:root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code",
+        "Fira Code", Menlo, Consolas, "Liberation Mono", monospace;
+
+    /* 暖中性 grayscale,单一色相,不混冷暖 */
+    --paper: #ffffff;        /* 页面底色:大面积留白用纯白 */
+    --surface: #ffffff;      /* 卡片表面 */
+    --secondary: #f6f6f3;    /* 次要/说明区:浅灰,使其后退 */
+    --sunken: #f0f0ea;       /* 输入框 / 结果区:可见的灰色凹槽 */
+    --ink: #26262a;          /* 主文字 & 主按钮 */
+    --ink-soft: #3c3c41;
+    --text: #34343a;
+    --subtext: #6f6f76;
+    --muted: #9a9a9f;
+    --line: #e4e4de;         /* 细线框 */
+    --line-strong: #d2d2c9;
+
+    /* 唯一点缀色:低饱和柔和灰青,仅极少量使用 */
+    --accent: #5f7d76;
+    --accent-soft: rgba(95, 125, 118, 0.10);
+    --accent-ring: rgba(95, 125, 118, 0.30);
+
+    --navbar: #26262a;       /* 沉静墨色,替换原蓝灰 */
+
+    --radius: 10px;
+    --radius-sm: 7px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html { padding-top: 60px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+    font-family: var(--font-sans);
+    background: var(--paper);   /* 纯净纸面,无渐变、无光晕 */
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p { line-height: 1.8; color: var(--subtext); }
+a { color: var(--ink); transition: color 0.18s var(--ease); }
+a:hover, a:focus { color: var(--accent); text-decoration: none; }
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-ring);
+    border-radius: 6px;
+}
+
+/* ---------- 顶部导航(无阴影,底部一条细线) ---------- */
+.navbar-default {
+    background-color: var(--navbar);
+    border: 0;
+    border-bottom: 1px solid #1c1c20;
+    box-shadow: none;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #c2c2c8;
+    font-weight: 500;
+    transition: color 0.18s var(--ease), background-color 0.18s var(--ease);
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+.navbar-default .navbar-brand { font-weight: 600; letter-spacing: 0.2px; color: #f2f2f0; }
+.logo_ico {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    box-shadow: none;
+}
+.dropdown-menu {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    padding: 6px;
+}
+.dropdown-menu > li > a { border-radius: 6px; padding: 7px 12px; color: var(--text); }
+.dropdown-menu > li > a:hover { background: var(--accent-soft); color: var(--ink); }
+
+/* ---------- 工具页头部(H1 区) ---------- */
+.tool-head { margin: 10px 0 22px; }
+.tool-head h1 {
+    font-size: 27px;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 10px;
+    line-height: 1.3;
+    text-wrap: balance;
+}
+.tool-head .lead {
+    font-size: 15px;
+    color: var(--subtext);
+    max-width: 68ch;
+    margin: 0;
+}
+.tool-head .lead .kbd {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--sunken);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 1px 6px;
+    color: var(--ink-soft);
+}
+
+/* ---------- 主区域 / 面板(细线框 + 留白,无阴影) ---------- */
+.col10main { background: transparent; padding-top: 16px; }
+/* 主功能区不再用卡片包裹,避免“白卡叠白底”发糊;由输入凹槽与按钮自身界定主功能 */
+.panel {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+/* ---------- 标签页(.hbflag)——去 gif,底部细线 + 激活下划线 ---------- */
+.nav-tabs.hbflag {
+    background: none;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+.nav-tabs.hbflag > li { float: none; margin-bottom: -1px; }
+.nav-tabs.hbflag > li > a {
+    border: 0;
+    border-radius: 0;
+    color: var(--subtext);
+    font-size: 13.5px;
+    padding: 9px 13px;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.nav-tabs.hbflag > li > a:hover { background: none; color: var(--ink); border-bottom-color: var(--line-strong); }
+.nav-tabs.hbflag > li.active > a,
+.nav-tabs.hbflag > li.active > a:hover,
+.nav-tabs.hbflag > li.active > a:focus {
+    background: none;
+    color: var(--ink);
+    border: 0;
+    border-bottom: 2px solid var(--accent);
+    font-weight: 600;
+}
+
+/* ---------- 表单 / 输入 ---------- */
+.form-control {
+    background: var(--sunken);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    box-shadow: none;
+    transition: border-color 0.18s var(--ease), background 0.18s var(--ease);
+}
+.form-control::placeholder { color: var(--muted); }
+.form-control:hover { border-color: var(--line-strong); }
+.form-control:focus {
+    background: var(--surface);
+    border-color: var(--accent);
+    box-shadow: none;
+}
+textarea.form-control {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.7;
+    padding: 14px 16px;
+    resize: vertical;
+    tab-size: 2;
+}
+
+/* ---------- 按钮(主按钮墨黑,次按钮线框,无阴影) ---------- */
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 550;
+    padding: 8px 18px;
+    border: 1px solid transparent;
+    box-shadow: none;
+    transition: transform 0.12s var(--ease), background 0.18s var(--ease),
+        border-color 0.18s var(--ease), color 0.18s var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { box-shadow: 0 0 0 2px var(--accent-ring); }
+
+.btn-success {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+    box-shadow: none;
+}
+.btn-success:hover, .btn-success:focus,
+.btn-success:active, .btn-success:active:hover {
+    background: var(--ink-soft);
+    border-color: var(--ink-soft);
+    color: #fff;
+}
+
+.btn-default {
+    background: var(--surface);
+    border-color: var(--line-strong);
+    color: var(--text);
+}
+.btn-default:hover, .btn-default:focus {
+    background: var(--sunken);
+    border-color: var(--muted);
+    color: var(--ink);
+}
+/* 统一按钮语义:主操作=墨黑,其余=中性线框,去掉 BS3 的彩色刺激 */
+.btn-primary, .btn-info {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+}
+.btn-primary:hover, .btn-primary:focus,
+.btn-info:hover, .btn-info:focus {
+    background: var(--ink-soft);
+    border-color: var(--ink-soft);
+    color: #fff;
+}
+.btn-warning {
+    background: var(--surface);
+    border-color: var(--line-strong);
+    color: var(--text);
+    font-weight: 550;
+    box-shadow: none;
+}
+.btn-warning:hover, .btn-warning:focus {
+    background: var(--sunken);
+    border-color: var(--muted);
+    color: var(--ink);
+}
+.btn-danger {
+    background: var(--surface);
+    border-color: var(--line-strong);
+    color: #9c4350;
+}
+.btn-danger:hover, .btn-danger:focus {
+    background: #f7eef0;
+    border-color: #d9b8be;
+    color: #8a3a46;
+}
+
+/* ---------- 结果区:浅色近单色,替换刺眼的 monokai 暗色 ---------- */
+pre {
+    background: var(--sunken);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+pre code, pre code.hljs {
+    display: block;
+    background: var(--sunken);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.75;
+    padding: 16px 18px;
+    max-height: 2000px;
+    overflow-y: auto;
+    font-variant-numeric: tabular-nums;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+/* 语法高亮收敛到两三档柔和色，避免霓虹刺激 */
+pre .hljs-comment, pre .hljs-quote { color: var(--muted); font-style: normal; }
+pre .hljs-string, pre .hljs-symbol, pre .hljs-attr, pre .hljs-attribute, pre .hljs-meta-string { color: var(--accent); }
+pre .hljs-number, pre .hljs-literal, pre .hljs-keyword, pre .hljs-built_in, pre .hljs-type,
+pre .hljs-title, pre .hljs-name, pre .hljs-tag, pre .hljs-selector-tag, pre .hljs-meta,
+pre .hljs-regexp, pre .hljs-section { color: var(--ink-soft); }
+pre .hljs-strong, pre strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- 说明文档块(线框卡片,无阴影,无彩底) ---------- */
+.tool-doc {
+    background: var(--secondary);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: none;
+    padding: 24px 26px;
+    margin-top: 30px;        /* 与主功能区拉开距离,主次关系一目了然 */
+    margin-bottom: 22px;
+    color: var(--subtext);
+}
+.tool-doc h2 {
+    font-size: 17px;
+    font-weight: 650;
+    color: var(--ink);
+    margin: 0 0 12px;
+    padding: 0;
+    letter-spacing: -0.01em;
+}
+.tool-doc h2.sub { font-size: 16px; margin-top: 26px; }
+.tool-doc p { margin-bottom: 12px; max-width: 76ch; }
+.tool-doc code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--sunken);
+    color: var(--ink-soft);
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+.tool-doc strong { color: var(--text); }
+
+/* 兼容旧标记:仍叫 alert-success 的说明框也按线框卡渲染(去绿底/阴影) */
+.col10main .alert-success {
+    background: var(--secondary);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--subtext);
+    box-shadow: none;
+    padding: 24px 26px;
+    margin-top: 30px;
+}
+.col10main .alert-success h4 { color: var(--ink); font-weight: 650; }
+
+/* 其余 alert 变体(info/warning/danger)也归一为线框信息卡,避免亮蓝/亮黄/亮红刺激 */
+.col10main .alert-info, .col10main .alert-warning, .col10main .alert-danger {
+    background: var(--secondary);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--subtext);
+    box-shadow: none;
+    padding: 18px 22px;
+}
+.col10main .alert-danger { border-left: 3px solid #c98a93; }
+
+/* 收掉 tool.css 残留的紫色徽章/标签 */
+.badge { background-color: var(--muted); }
+.label-primary, .label-info, .label-success { background-color: var(--ink); }
+
+/* ---------- 数据表格:细线网格,极轻交替,无阴影 ---------- */
+.tool-doc .table, .col10main .table {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    font-variant-numeric: tabular-nums;
+    box-shadow: none;
+}
+.table > thead > tr > td, .table > tbody > tr > td {
+    border-color: var(--line) !important;
+    vertical-align: middle;
+}
+.table-striped > tbody > tr:nth-of-type(odd) { background: #fafaf8; }
+.table-hover > tbody > tr:hover { background: var(--accent-soft); }
+.panel-success { border: 0; box-shadow: none; }
+
+/* ---------- 回到顶部(墨色,无阴影) ---------- */
+.gotop { background: var(--ink); box-shadow: none; }
+.gotop .arrow.lit { border-color: transparent transparent var(--ink); }
+
+/* ---------- 页脚推荐区(去紫,细线分隔) ---------- */
+.footer-nav h2 { color: var(--ink); border-bottom: 1px solid var(--line); }
+.footer-nav h3 span { border-left: 3px solid var(--line-strong); color: var(--ink); }
+.footer-nav .list-inline-bg { background: transparent; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.footer-nav .list-inline-bg li a { color: var(--subtext); transition: color 0.16s var(--ease); }
+.footer-nav .list-inline-bg li a:hover { color: var(--accent); }
+.footer-nav .list-inline-bg li span { background: var(--muted); }
+.copyright { color: var(--muted); }
+.copyright a { color: var(--subtext); }
+#foot-history span { color: var(--subtext); }
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 768px) {
+    html { padding-top: 56px; }
+    .tool-head h1 { font-size: 22px; }
+    .panel { padding: 18px; }
+    .tool-doc { padding: 18px 20px; }
+    .btn { padding: 8px 14px; }
+    .form-group .text-center .btn { margin-bottom: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

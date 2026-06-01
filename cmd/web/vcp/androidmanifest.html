@@ -1,7 +1,17 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /><title>{{ .title }}</title><meta name="applicable-device" content="pc,mobile" /><meta http-equiv="Cache-Control" content="no-transform" /><meta http-equiv="Cache-Control" content="no-siteapp" /><meta name="keywords" content="{{ .keywords }}" /><meta name="description" content="{{ .description }}" /><meta name="renderer" content="webkit" /><meta name="apple-mobile-web-app-capable" content="yes" /><link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon" /><link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="/static/style/tool.css" rel="stylesheet" type="text/css" /><!--[if lt IE 9]><script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script><script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--></head><body>{{ template "header.html" . }}
+{{ template "head.html" . }}
+<body>{{ template "header.html" . }}
 
 <div class="container"><div class="row"><div class="col-md-12 col10main"><div class="accordion" id="accordion2"><div class="accordion-group"><!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
-<ul class="nav nav-tabs hbflag"><li role="presentation"><a href="/useragent.html">常用User-Agent</a></li><li role="presentation"><a href="/contenttype.html">Content-Type对照表</a></li><li role="presentation"><a href="/requestmethod.html">Request请求大全</a></li><li role="presentation"><a href="/httpheader.html">HTTP请求头大全</a></li><li role="presentation"><a href="/pagecode.html"> HTTP状态码</a></li><li role="presentation"><a href="/asciicode.html">ASCII对照表</a></li><li role="presentation" class="active"><a href="/androidmanifest.html"> Android Manifest权限大全</a></li><li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">更多工具<span class="caret"> </span></a><ul class="dropdown-menu"><li role="presentation"><a href="/htmlescapechar.html">HTML特殊字符转义</a></li><li role="presentation"><a href="/ports.html">常见端口大全</a></li><li role="presentation"><a href="/bootstrapicon.html">Bootstrap字体图标</a></li><li role="presentation"><a href="/linuxcmd.html">Linux常用命令大全</a></li></ul></li></ul>    <div class="alert alert-success alert-dismissible" role="alert">Android Manifest 权限描述大全对照表，可以方便andriod开发者查看安卓权限描述功能 <code>小技巧： Ctrl+F 快速查找</code></div>
+{{ .siblings }}
+<header class="tool-head">
+    <h1>Android Manifest 权限对照表</h1>
+    <p class="lead">查 <code>AndroidManifest.xml</code> 里各项 <code>android.permission</code> 权限的中文名称和作用，方便申请权限时对照含义。</p>
+</header>
+<article class="tool-doc">
+    <h2>怎么用这张表</h2>
+    <p>每条权限都要在清单文件里用 <code>&lt;uses-permission&gt;</code> 声明后才能使用。下表第一列是权限的完整字符串，后两列是中文名称和说明。表很长，用 <code>Ctrl+F</code> 搜关键词（如“定位”“短信”）能快速定位。</p>
+    <p>注意：从 Android 6.0 起，定位、相机、联系人、短信等“危险权限”仅在清单里声明还不够，运行时还要弹窗向用户申请；标注“仅用于系统”的权限第三方应用无法获得。具体可用范围以你的目标 SDK 版本为准。</p>
+</article>
 <div class="form-group">
 <div class="table-responsive"><table class="table table-striped table-bordered"><tbody>
 <tr><th style="width:25%;" class="titcolor">权限</th><th style="width:15%;" class="titcolor">名称</th><th style="width:60%;" class="titcolor">描述</th></tr>

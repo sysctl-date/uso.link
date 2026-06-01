@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -27,6 +7,10 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
+                    <header class="tool-head">
+                        <h1>历史上的今天</h1>
+                        <p class="lead">查看当天这一天在历史上发生过的重要事件，按日期排列。</p>
+                    </header>
                     <div class="panel">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -42,7 +26,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>历史今天</h4><p>今天发生在历史的那些事！</p></div>
+                <article class="tool-doc"><h2>关于这份清单</h2><p>这里列出的是历史上发生在今天这一天的事件，按发生日期先后排列。日期会随当天自动更新，每天看到的内容都不一样。</p></article>
                 <div class="accordion-group"></div>
             </div>
         </div>

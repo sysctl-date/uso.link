@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+{{ template "head.html" . }}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>
-        {{ .title }}
-    </title>
-    <meta name="applicable-device" content="pc,mobile" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"
-    />
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"
-    />
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js">
-    </script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js">
-    </script>
-    <![endif]-->
-</head>
 
 <body>
 {{ template "header.html" . }}
@@ -35,38 +8,11 @@
         <div class="col-md-12 col10main">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-                        <li role="presentation">
-                            <a href="/password.html">
-                                密码生成器
-                            </a>
-                        </li>
-                        <li role="presentation" class="active">
-                            <a href="/uuid.html">
-                                UUID在线生成
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/guid.html">
-                                GUID在线生成
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/htpasswd.html">
-                                htpasswd生成
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/barcode.html">
-                                条形码生成器
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/ip2long.html">
-                                IP/数字地址转换
-                            </a>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>UUID 在线生成器</h1>
+                        <p class="lead">一次生成 1 到 100 个符合 RFC 4122 的版本 4（随机）UUID，可选大小写。生成过程在浏览器本地完成，不上传服务器。</p>
+                    </header>
                     <div class="panel">
                         <div id="form1" class="form-horizontal" method="post" action="">
                             <div class="form-group">
@@ -104,14 +50,11 @@
                     </div>
                 </div>
                 <div class="accordion-group">
-                    <div class="in collapse bs-docs-demoexample">
-                        <h4>
-                            什么是UUID
-                        </h4>
-                        <p>
-                            UUID 是 通用唯一识别码（Universally Unique Identifier）的缩写，是一种软件建构的标准，亦为开放软件基金会组织在分布式计算环境领域的一部分。UUID是一个128比特的数值，这个数值可以通过一定的算法计算出来。为了提高效率，常用的UUID可缩短至16位。UUID用来识别属性类型，在所有空间和时间上被视为唯一的标识。一般来说，可以保证这个值是真正唯一的任何地方产生的任意一个UUID都不会有相同的值。使用UUID的一个好处是可以为新的服务创建新的标识符。标准的UUID格式为：xxxxxxxx-xxxx-xxxx-xxxxxx-xxxxxxxxxx(8-4-4-4-12)。
-                        </p>
-                    </div>
+                    <article class="tool-doc">
+                        <h2>什么是 UUID</h2>
+                        <p>UUID（通用唯一识别码）是一个 128 位的标识符，写成 <code>8-4-4-4-12</code> 共 32 个十六进制字符，例如 <code>550e8400-e29b-41d4-a716-446655440000</code>。它的用途是在不依赖中央协调的情况下，让不同机器各自生成 ID 也几乎不会重复，常用于数据库主键、分布式系统和文件命名。</p>
+                        <p>本工具生成的是版本 4（随机）UUID，绝大多数比特来自随机数。它依赖随机性保证不重复，并不携带时间或机器信息，因此不要用它来推断生成顺序或来源。</p>
+                    </article>
                 </div>
                 <div class="accordion-group">
                 </div>

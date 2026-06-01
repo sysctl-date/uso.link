@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+{{ template "head.html" . }}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>
-        {{ .title }}
-    </title>
-    <meta name="applicable-device" content="pc,mobile" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"
-    />
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"
-    />
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js">
-    </script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js">
-    </script>
-    <![endif]-->
-</head>
 
 <body>
 {{ template "header.html" . }}
@@ -62,6 +35,10 @@
                             </a>
                         </li>
                     </ul>
+                    <header class="tool-head">
+                        <h1>MD5 在线计算（16 位 / 32 位）</h1>
+                        <p class="lead">对输入文本计算 MD5 摘要，一次给出 32 位与 16 位的大小写四种结果，在浏览器本地完成，内容不上传。</p>
+                    </header>
                     <div class="panel">
                         <div id="form1" class="form-horizontal" action="/md5/" method="post">
                             <div class="form-group">
@@ -95,14 +72,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible">
-                    <h4>
-                        MD5加密
-                    </h4>
-                    <p>
-                        MD5加密是一种不可逆的加密算法,可根据加密值比较结果是否相等，MD5在线加密工具为您提供MD5在线加密,MD5加密工具,不可逆加密,16位及32位加密工具,实现32位大小写加密和16位大小写加密,可根据不同md5加密需求,选择不同的加密算法，MD5能够生成数据或文件的“数字指纹”，就像每个人都有自己独一无二的指纹一样，MD5生成的这个“数字指纹”也是独一无二的，可以用来验证数据或文件的一致性。本站不会记录您的任何信息,请放心使用。
-                    </p>
-                </div>
+                <article class="tool-doc">
+                    <h2>MD5 是单向摘要，不能“解密”</h2>
+                    <p>MD5 把任意长度的内容映射成一段固定长度的摘要，常被叫作“加密”，但它是<strong>单向</strong>的：只能从原文算出摘要，无法从摘要反推回原文，所以本工具只做计算，没有“解密”功能。相同的输入永远得到相同的摘要，因此常用于校验文件是否被改动、或比对两段内容是否一致。</p>
+                    <p>这里的 32 位是标准的完整 MD5（128 比特、32 个十六进制字符）；16 位只是从 32 位结果中截取中间 16 个字符，并非另一种算法，碰撞概率更高。大小写只是同一串字符的两种写法，含义相同。注意 MD5 早已不适合用于密码存储等安全场景，仅建议用于一致性校验。</p>
+                </article>
                 <div class="accordion-group">
                 </div>
             </div>

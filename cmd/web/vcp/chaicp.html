@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -27,29 +7,11 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-                                                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>ICP 备案查询</h1>
+                        <p class="lead">输入域名，查询它在工信部的 ICP 备案信息，包括主办单位、备案号和审核情况。查询由服务器抓取备案数据后返回。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="input-group mb5" style="width:85%"><input class="form-control" type="text"
@@ -81,8 +43,11 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>ICP备案查询</h4>
-                    <p>网站ICP备案查询，批量查询网站备案。查看网站是否已经备案及备案情况</p></div>
+                <article class="tool-doc">
+                    <h2>查什么、怎么用</h2>
+                    <p>ICP 备案是境内网站依法需要完成的工信部登记。输入域名即可查到该域名是否已备案，以及主办单位名称、备案/许可证号、审核通过时间等公开信息，常用于核实网站资质或自查备案状态。</p>
+                    <p>备案信息以域名为单位查询，结果来源于公开备案库，可能与最新状态存在延迟；备案号、主体等以工信部备案系统的实时数据为准。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

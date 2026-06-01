@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+{{ template "head.html" . }}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>
-        {{ .title }}
-    </title>
-    <meta name="applicable-device" content="pc,mobile" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"
-    />
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"
-    />
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js">
-    </script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js">
-    </script>
-    <![endif]-->
-    <style>
+
+<body>
+<style>
         #container {
             max-width: 500px;
             margin: 30px auto;
@@ -46,9 +22,6 @@
 
         canvas { box-sizing: border-box; width: 100%; border: 1px dashed #AAA; cursor: pointer }
     </style>
-</head>
-
-<body>
 {{ template "header.html" . }}
 <div class="container">
     <div class="row">
@@ -56,10 +29,15 @@
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
 
+                    <header class="tool-head">
+                        <h1>图片加水印</h1>
+                        <p class="lead">给本地图片打上文字水印，可调颜色、透明度、角度、间隔和字号。全程在浏览器里用 Canvas 处理，图片不会上传，适合给身份证、驾照等敏感证件加防盗用水印。</p>
+                    </header>
+
                     <div class="panel">
                         <div id="container">
-                            <h1>图片水印打码工具</h1>
-                            <article>安全地为你的图片加水印，无任何网络请求，特别适合各种敏感证件（身份证，驾照，护照等）。</article>
+                            <p class="h4">图片水印打码工具</p>
+                            <article>选好图片、输入文字即可实时生成水印，整个过程不发起任何网络请求。</article>
 
                             <label for="image">第一步：先选择一张本地图片</label>
                             <p><input type="file" id="image" autocomplete="off"></p>
@@ -95,14 +73,11 @@
                     </div>
                 </div>
                 <div class="accordion-group">
-                    <div class="in collapse bs-docs-demoexample">
-                        <h4>
-                            图片水印打码工具
-                        </h4>
-                        <p>
-                            图片加水印的起源可追溯到中世纪纸张制造，通过在纸张中嵌入标志以防伪和标识所有权。随着数字时代的到来，水印技术被引入到电子图像中，用于保护版权和防止盗用。早期的数字水印主要是可见的文字或标志，现代则发展出隐形水印，利用复杂算法嵌入不可察觉的信息。趣闻包括一些艺术家利用水印创作隐秘图案，甚至有恶搞水印的案例。此外，冷知识是数字水印不仅用于版权保护，还广泛应用于验证图像来源和追踪传播路径。水印技术因其有效性和多样性，广泛应用于摄影、设计和网络内容保护领域。
-                        </p>
-                    </div>
+                    <article class="tool-doc">
+                        <h2>怎么用</h2>
+                        <p>先选一张本地图片，输入要叠加的水印文字，再用下面的滑块调整颜色、透明度、倾斜角度、平铺间隔和字号，预览区会实时刷新。满意后点击预览图即可把带水印的图片下载下来。</p>
+                        <p>给身份证、银行卡、合同等敏感材料加水印时，建议写明用途（如“仅供某某办理某业务使用”），能有效降低被盗用的风险。整个处理在你本机的浏览器内用 Canvas 完成，图片不会上传到任何服务器。</p>
+                    </article>
                 </div>
                 <div class="accordion-group">
                 </div>

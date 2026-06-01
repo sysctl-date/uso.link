@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -27,29 +7,11 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-
-                                                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>微信域名拦截检测</h1>
+                        <p class="lead">输入域名，检测它在微信内打开时是否被拦截或屏蔽。检测请求由服务器发起并返回结果。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1help" class="form-horizontal">
                             <div class="form-group">
@@ -93,8 +55,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>微信域名检测工具</h4>
-                    <p>使用微信域名检测工具可以实时检测域名是否被微信屏蔽，检测您的域名在微信是否被拦截等 。</p></div>
+                <article class="tool-doc">
+                    <h2>它能查什么</h2>
+                    <p>当域名因违规或被举报被微信封禁后，在微信里点开会跳到拦截提示页，无法正常访问。这个工具用来检测某个域名当前是否处于被微信拦截的状态，结果分“正常”和“已被拦截”两种。</p>
+                    <p>检测结果反映的是提交时刻的状态，封禁与解封都可能随时变化，仅供参考。是否被拦截由微信一侧判定，本工具无法解除封禁。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

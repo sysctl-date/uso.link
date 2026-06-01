@@ -69,11 +69,18 @@ func RenderPage(c *gin.Context) {
 	}
 	log2.Logf("%v", pageName.PageName)
 	if pageData, ok := web_model.WebConfig[pageName.PageName]; ok {
+		canonical := pageData.Canonical
+		if canonical == "" {
+			canonical = "https://" + config.AppHost + "/" + pageName.PageName + ".html"
+		}
 		c.HTML(http.StatusOK, pageName.PageName+".html", gin.H{
 			"title":       pageData.Title,
-			"canonical":   pageData.Canonical,
+			"canonical":   canonical,
 			"keywords":    pageData.Keywords,
 			"description": pageData.Description,
+			"navbar":      web_model.NavbarHTML,
+			"footerNav":   web_model.FooterNavHTML,
+			"siblings":    web_model.SiblingTabs["/"+pageName.PageName+".html"],
 		})
 	} else {
 		c.String(http.StatusNotFound, "Page not found")

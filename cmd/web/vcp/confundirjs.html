@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+{{ template "head.html" . }}
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>
-        {{ .title }}
-    </title>
-    <meta name="applicable-device" content="pc,mobile" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="keywords" content="{{ .keywords }}" />
-    <meta name="description" content="{{ .description }}" />
-    <meta name="renderer" content="webkit" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"
-    />
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"
-    />
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js">
-    </script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js">
-    </script>
-    <![endif]-->
-</head>
 
 <body>
 {{ template "header.html" . }}
@@ -36,103 +9,11 @@
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
                     <!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
-                    <ul class="nav nav-tabs hbflag">
-                        <li role="presentation">
-                            <a href="/formathtml.html">
-                                HTML格式化/压缩
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/formatcss.html">
-                                CSS格式化/压缩
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/formatjs.html">
-                                JS格式化/压缩
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/endecodejs.html">
-                                JS加密/解密
-                            </a>
-                        </li>
-                        <li role="presentation" class="active">
-                            <a href="/confundirjs.html">
-                                JS代码混合加密
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/formatsql.html">
-                                SQL压缩/格式化
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/formatphp.html">
-                                PHP代码格式化工具
-                            </a>
-                        </li>
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"
-                               role="button" aria-haspopup="true" aria-expanded="false">
-                                更多工具
-                                <span class="caret">
-                                        </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation">
-                                    <a href="/formatxml.html">
-                                        XML压缩/格式化
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatcs.html">
-                                        C#代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatjava.html">
-                                        JAVA代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatcsql.html">
-                                        SQL代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatpy.html">
-                                        Python代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatruby.html">
-                                        Ruby代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatc.html">
-                                        C语言代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatcpp.html">
-                                        C++代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatperl.html">
-                                        Perl代码格式化工具
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="/formatvbs.html">
-                                        VBScript格式化工具
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>JS 代码混淆</h1>
+                        <p class="lead">把 JavaScript 代码改写成难以阅读的等价形式，在不改变运行结果的前提下提高被直接照抄的门槛。处理在浏览器本地完成。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="form-group">
@@ -161,14 +42,11 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible">
-                    <h4>
-                        JS混合加密工具介绍
-                    </h4>
-                    <p>
-                        JS混合加密工具为您提供JS混合加密,js混合加密工具,JS在线混合加密,JS代码在线混合加密,通过本工具可以对JS代码混淆，使到保护JS代码的作用；是一款非常简便实用的在线JavaScript混合加密工具，先进行JS加密再进行混淆加密效果会更好，更安全的保护您的JavaScript。
-                    </p>
-                </div>
+                <article class="tool-doc">
+                    <h2>混淆不是加密</h2>
+                    <p>这里做的是<strong>混淆</strong>而非加密：通过变量改名、编码字符串、打乱结构等手段，把代码变成人难以读懂、但浏览器仍能正常执行的形式。它不需要密钥，也不能真正解密——混淆后的代码依然会被运行，因此理论上都可以被还原或调试出来。</p>
+                    <p>它的作用是提高阅读和直接照抄的成本，适合给前端脚本做一层基础保护，但不要把任何密钥、密码等机密写进前端代码指望靠它保密。粘贴代码后点按钮即可得到混淆结果。</p>
+                </article>
                 <div class="accordion-group">
                 </div>
             </div>

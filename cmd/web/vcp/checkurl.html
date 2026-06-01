@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -26,26 +7,11 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">更多工具<span class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-                                                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>网站死链检测</h1>
+                        <p class="lead">输入网址，由服务器逐个访问页面里的链接并取回 HTTP 状态码，帮你找出 404、500 等打不开的死链。</p>
+                    </header>
                     <div class="panel">
                         <input id="TextArea2" rows="12" style="width:60%;float:left;display:inline" class="form-control"
                                placeholder="请输入要检测的链接"/>
@@ -79,9 +45,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>网站死链检测查询工具</h4>
-                    <p>为您提供网站死链检查,检测网站有哪些链接是死链,死链查询,网站死链检测查询工具,网站死链检查等，帮您快速找到死链接,提升网站链接质量，帮助用户快速排查死链接更利于页面链接优化。死链接 -
-                        也称无效链接，即那些不可达到的链接。</p></div>
+                <article class="tool-doc">
+                    <h2>什么是死链</h2>
+                    <p>死链（无效链接）指那些访问后无法正常打开的链接，常见原因是页面被删除或地址写错，服务器会返回 404、500 等错误状态码。网站积累过多死链既影响访客体验，也不利于搜索引擎抓取。</p>
+                    <p>提交网址后，工具会逐条访问其中的链接并取回状态码：200、301、302、307 视为可访问，404、500 标记为异常，其余原样显示。链接较多时检测会分页进行，请耐心等待结果加载完成。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

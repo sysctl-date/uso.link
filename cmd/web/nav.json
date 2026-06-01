@@ -1,0 +1,680 @@
+[
+  {
+    "name": "生活工具",
+    "tools": [
+      {
+        "path": "/shuiyin.html",
+        "label": "图片加水印"
+      },
+      {
+        "path": "/qrcode.html",
+        "label": "二维码生成"
+      }
+    ]
+  },
+  {
+    "name": "JSON工具",
+    "tools": [
+      {
+        "path": "/json.html",
+        "label": "Json格式化"
+      },
+      {
+        "path": "/jsonudview.html",
+        "label": "Json格式化(上下)"
+      },
+      {
+        "path": "/jsonlrview.html",
+        "label": "Json格式化(左右)"
+      },
+      {
+        "path": "/jsonzip.html",
+        "label": "Json在线压缩转义"
+      },
+      {
+        "path": "/json2cs.html",
+        "label": "Json生成C#实体类"
+      },
+      {
+        "path": "/json2java.html",
+        "label": "Json生成Java实体类"
+      },
+      {
+        "path": "/json2go.html",
+        "label": "Json生成Go结构体"
+      },
+      {
+        "path": "/sql2java.html",
+        "label": "SQL转Java实体类"
+      },
+      {
+        "path": "/json2xml.html",
+        "label": "XML和Json在线互转"
+      },
+      {
+        "path": "/excel2json.html",
+        "label": "Excel/CSV转Json格式"
+      },
+      {
+        "path": "/json2excel.html",
+        "label": "Json转Excel/CSV格式"
+      },
+      {
+        "path": "/json2get.html",
+        "label": "JSON和GET参数互转"
+      },
+      {
+        "path": "/json2yaml.html",
+        "label": "JSON转YAML"
+      }
+    ]
+  },
+  {
+    "name": "格式化转换",
+    "tools": [
+      {
+        "path": "/formathtml.html",
+        "label": "HTML格式化/压缩"
+      },
+      {
+        "path": "/formatcss.html",
+        "label": "CSS格式化/压缩"
+      },
+      {
+        "path": "/formatjs.html",
+        "label": "JS格式化/压缩"
+      },
+      {
+        "path": "/endecodejs.html",
+        "label": "JS加密/解密"
+      },
+      {
+        "path": "/confundirjs.html",
+        "label": "JS代码混合加密"
+      },
+      {
+        "path": "/formatsql.html",
+        "label": "SQL压缩/格式化"
+      },
+      {
+        "path": "/formatphp.html",
+        "label": "PHP代码格式化工具"
+      },
+      {
+        "path": "/formatxml.html",
+        "label": "XML压缩/格式化"
+      },
+      {
+        "path": "/formatcs.html",
+        "label": "C#代码格式化工具"
+      },
+      {
+        "path": "/formatjava.html",
+        "label": "JAVA代码格式化工具"
+      },
+      {
+        "path": "/formatcsql.html",
+        "label": "SQL代码格式化工具"
+      },
+      {
+        "path": "/formatpy.html",
+        "label": "Python代码格式化工具"
+      },
+      {
+        "path": "/formatruby.html",
+        "label": "Ruby代码格式化工具"
+      },
+      {
+        "path": "/formatc.html",
+        "label": "C语言代码格式化工具"
+      },
+      {
+        "path": "/formatcpp.html",
+        "label": "C++代码格式化工具"
+      },
+      {
+        "path": "/formatperl.html",
+        "label": "Perl代码格式化工具"
+      },
+      {
+        "path": "/formatvbs.html",
+        "label": "VBScript格式化工具"
+      },
+      {
+        "path": "/html2js.html",
+        "label": "Html转JS"
+      },
+      {
+        "path": "/htmloutjs.html",
+        "label": "Html/JS互转"
+      },
+      {
+        "path": "/htmlescape.html",
+        "label": "Html转义工具"
+      },
+      {
+        "path": "/html2cj.html",
+        "label": "Html转C#/JSP"
+      },
+      {
+        "path": "/html2php.html",
+        "label": "Html转PHP代码"
+      },
+      {
+        "path": "/html2all.html",
+        "label": "Html转ASP/Perl"
+      },
+      {
+        "path": "/htmlfromcsv.html",
+        "label": "Excel转HTML表格"
+      },
+      {
+        "path": "/htmltable.html",
+        "label": "Html表格生成器"
+      },
+      {
+        "path": "/html2ubb.html",
+        "label": "HTML/UBB互转"
+      },
+      {
+        "path": "/htmlmarkdown.html",
+        "label": "HTML/MarkDown互转"
+      },
+      {
+        "path": "/regex.html",
+        "label": "正则表达式测试工具"
+      },
+      {
+        "path": "/regexcode.html",
+        "label": "正则生成代码"
+      },
+      {
+        "path": "/formatfilter.html",
+        "label": "Html过滤工具"
+      },
+      {
+        "path": "/regexdso.html",
+        "label": "常用正则表达式"
+      },
+      {
+        "path": "/regexsucha.html",
+        "label": "正则表达式语法速查"
+      },
+      {
+        "path": "/runjs.html",
+        "label": "运行Js/html/css"
+      },
+      {
+        "path": "/xpath.html",
+        "label": "Xpath工具"
+      }
+    ]
+  },
+  {
+    "name": "加解密编码",
+    "tools": [
+      {
+        "path": "/urlcode.html",
+        "label": "URL网址16进制加密"
+      },
+      {
+        "path": "/urlthunder.html",
+        "label": "迅雷旋风URL加解密"
+      },
+      {
+        "path": "/base64.html",
+        "label": "Base64加密/解密"
+      },
+      {
+        "path": "/escape.html",
+        "label": "Escape加密/解密"
+      },
+      {
+        "path": "/deencrypt.html",
+        "label": "对称加密/解密"
+      },
+      {
+        "path": "/aesencrypt.html",
+        "label": "AES加密/解密"
+      },
+      {
+        "path": "/desencrypt.html",
+        "label": "DES加密/解密"
+      },
+      {
+        "path": "/rc4encrypt.html",
+        "label": "RC4加密/解密"
+      },
+      {
+        "path": "/rabbitencrypt.html",
+        "label": "Rabbit加密/解密"
+      },
+      {
+        "path": "/tripledes.html",
+        "label": "TripleDES加密/解密"
+      },
+      {
+        "path": "/shaencrypt.html",
+        "label": "SHA/SHA256加密"
+      },
+      {
+        "path": "/allencrypt.html",
+        "label": "散列/哈希加密大全"
+      },
+      {
+        "path": "/morse.html",
+        "label": "摩尔斯电码加解密"
+      },
+      {
+        "path": "/password.html",
+        "label": "密码生成器"
+      },
+      {
+        "path": "/uuid.html",
+        "label": "UUID在线生成"
+      },
+      {
+        "path": "/htpasswd.html",
+        "label": "htpasswd生成"
+      },
+      {
+        "path": "/barcode.html",
+        "label": "条形码生成器"
+      },
+      {
+        "path": "/ip2long.html",
+        "label": "IP/数字地址转换"
+      },
+      {
+        "path": "/img2base64.html",
+        "label": "图片转Base64"
+      },
+      {
+        "path": "/utf8.html",
+        "label": "UTF-8转GBK"
+      },
+      {
+        "path": "/unicode.html",
+        "label": "Unicode/ASCII转换"
+      },
+      {
+        "path": "/ascii.html",
+        "label": "ASCII编码/解码"
+      },
+      {
+        "path": "/urlencode.html",
+        "label": "URL编码/解码"
+      },
+      {
+        "path": "/navtiveunicode.html",
+        "label": "Native/Unicode编码转换"
+      },
+      {
+        "path": "/keyboardcode.html",
+        "label": "KeyCode键盘按键码"
+      },
+      {
+        "path": "/androidkeycode.html",
+        "label": "Android按键码"
+      },
+      {
+        "path": "/keyboardtest.html",
+        "label": "键盘测试工具"
+      }
+    ]
+  },
+  {
+    "name": "文本数字",
+    "tools": [
+      {
+        "path": "/editor.html",
+        "label": "Html在线编辑器"
+      },
+      {
+        "path": "/autoformat.html",
+        "label": "文章自动排版"
+      },
+      {
+        "path": "/jianfan.html",
+        "label": "简繁字体转换"
+      },
+      {
+        "path": "/pinyin.html",
+        "label": "汉字转为拼音"
+      },
+      {
+        "path": "/huoxingwen.html",
+        "label": "火星文转换器"
+      },
+      {
+        "path": "/txtreplace.html",
+        "label": "文本内容替换"
+      },
+      {
+        "path": "/textdiff.html",
+        "label": "文本内容对比"
+      },
+      {
+        "path": "/txtcount.html",
+        "label": "在线统计字数工具"
+      },
+      {
+        "path": "/shupai.html",
+        "label": "文字竖排工具"
+      },
+      {
+        "path": "/textflip.html",
+        "label": "文字翻转工具"
+      },
+      {
+        "path": "/quchong.html",
+        "label": "内容去重工具"
+      },
+      {
+        "path": "/wenzitexiao.html",
+        "label": "文字特效工具"
+      },
+      {
+        "path": "/zipstringtext.html",
+        "label": "字符串文本压缩工具"
+      },
+      {
+        "path": "/camelcase.html",
+        "label": "驼峰与下划线互转"
+      },
+      {
+        "path": "/quanbaojiao.html",
+        "label": "全角半角转换"
+      },
+      {
+        "path": "/enlower.html",
+        "label": "英文字母大小写转换"
+      },
+      {
+        "path": "/rmbdaxie.html",
+        "label": "人民币大写转换工具"
+      },
+      {
+        "path": "/random.html",
+        "label": "随机数生成器"
+      },
+      {
+        "path": "/unixtime.html",
+        "label": "Unix时间戳在线转换"
+      },
+      {
+        "path": "/hexconvert.html",
+        "label": "常用进制转换工具"
+      },
+      {
+        "path": "/hexrgb.html",
+        "label": "RGB颜色在线转换"
+      }
+    ]
+  },
+  {
+    "name": "网络",
+    "tools": [
+      {
+        "path": "/websocket.html",
+        "label": "Websocket测试"
+      },
+      {
+        "path": "/browserinfo.html",
+        "label": "获取浏览器信息"
+      },
+      {
+        "path": "/dns.html",
+        "label": "公共DNS"
+      },
+      {
+        "path": "/alldns.html",
+        "label": "各地区公共DNS"
+      },
+      {
+        "path": "/dnsdx.html",
+        "label": "各地电信DNS"
+      },
+      {
+        "path": "/dnslt.html",
+        "label": "各地联通DNS"
+      },
+      {
+        "path": "/dnsyd.html",
+        "label": "各地移动DNS"
+      },
+      {
+        "path": "/dnstt.html",
+        "label": "各地铁通DNS"
+      },
+      {
+        "path": "/dnsedu.html",
+        "label": "教育网DNS"
+      },
+      {
+        "path": "/dnsusa.html",
+        "label": "美国DNS"
+      },
+      {
+        "path": "/ip.html",
+        "label": "IP地址查询"
+      },
+      {
+        "path": "/whois.html",
+        "label": "Whois查询"
+      },
+      {
+        "path": "/webstatus.html",
+        "label": "HTTP状态查询"
+      }
+    ]
+  },
+  {
+    "name": "站长",
+    "tools": [
+      {
+        "path": "/htaccess2nginx.html",
+        "label": "htaccess转nginx"
+      },
+      {
+        "path": "/px2rem.html",
+        "label": "rem与px转换工具"
+      },
+      {
+        "path": "/tiaoseban.html",
+        "label": "在线调色板"
+      },
+      {
+        "path": "/checkurl.html",
+        "label": "网站死链检测"
+      },
+      {
+        "path": "/chaicp.html",
+        "label": "ICP备案查询"
+      },
+      {
+        "path": "/gzip.html",
+        "label": "Gzip压缩检测"
+      },
+      {
+        "path": "/checkkeyword.html",
+        "label": "关键词密度检测"
+      },
+      {
+        "path": "/checkweixin.html",
+        "label": "微信域名检测"
+      },
+      {
+        "path": "/shortcut.html",
+        "label": "网址桌面快捷方式"
+      }
+    ]
+  },
+  {
+    "name": "计算",
+    "tools": [
+      {
+        "path": "/nianlvli.html",
+        "label": "利率计算器在线"
+      },
+      {
+        "path": "/subnetmask.html",
+        "label": "子网掩码计算器"
+      },
+      {
+        "path": "/calculator.html",
+        "label": "在线科学计算器"
+      },
+      {
+        "path": "/calcarea.html",
+        "label": "面积换算器"
+      },
+      {
+        "path": "/calcheat.html",
+        "label": "热量换算器"
+      },
+      {
+        "path": "/calcvolume.html",
+        "label": "体积换算器"
+      },
+      {
+        "path": "/calcpressure.html",
+        "label": "压力换算器"
+      },
+      {
+        "path": "/calcpower.html",
+        "label": "功率换算器"
+      },
+      {
+        "path": "/calclength.html",
+        "label": "长度换算器"
+      },
+      {
+        "path": "/calctemperature.html",
+        "label": "温度换算器"
+      },
+      {
+        "path": "/calctime.html",
+        "label": "时间换算器"
+      },
+      {
+        "path": "/calcspeed.html",
+        "label": "速度换算器"
+      },
+      {
+        "path": "/calcangle.html",
+        "label": "角度换算器"
+      },
+      {
+        "path": "/calcdata.html",
+        "label": "数据大小换算器"
+      },
+      {
+        "path": "/calcthickness.html",
+        "label": "密度换算器"
+      },
+      {
+        "path": "/calcforce.html",
+        "label": "力换算器"
+      }
+    ]
+  },
+  {
+    "name": "其他",
+    "tools": [
+      {
+        "path": "/tuya.html",
+        "label": "在线涂鸦画板"
+      },
+      {
+        "path": "/shizhong.html",
+        "label": "在线时钟"
+      },
+      {
+        "path": "/worldtime.html",
+        "label": "世界各地时间"
+      },
+      {
+        "path": "/capital.html",
+        "label": "世界各国首都查询"
+      },
+      {
+        "path": "/currency.html",
+        "label": "世界各地货币查询"
+      },
+      {
+        "path": "/areacode.html",
+        "label": "世界各国区号时差查询"
+      },
+      {
+        "path": "/jieri.html",
+        "label": "世界节日查询"
+      },
+      {
+        "path": "/shaoshuminzu.html",
+        "label": "全国少数民族分布查询"
+      },
+      {
+        "path": "/chaodai.html",
+        "label": "中国历史朝代时间查询表"
+      },
+      {
+        "path": "/tesufuhao.html",
+        "label": "特殊符号大全"
+      },
+      {
+        "path": "/refresh.html",
+        "label": "网页定时刷新"
+      }
+    ]
+  },
+  {
+    "name": "对照列表",
+    "tools": [
+      {
+        "path": "/useragent.html",
+        "label": "常用User-Agent"
+      },
+      {
+        "path": "/contenttype.html",
+        "label": "Content-Type对照表"
+      },
+      {
+        "path": "/requestmethod.html",
+        "label": "Request请求大全"
+      },
+      {
+        "path": "/httpheader.html",
+        "label": "HTTP请求头大全"
+      },
+      {
+        "path": "/pagecode.html",
+        "label": "HTTP状态码"
+      },
+      {
+        "path": "/asciicode.html",
+        "label": "ASCII对照表"
+      },
+      {
+        "path": "/htmlescapechar.html",
+        "label": "HTML特殊字符转义"
+      },
+      {
+        "path": "/ports.html",
+        "label": "常见端口大全"
+      },
+      {
+        "path": "/bootstrapicon.html",
+        "label": "Bootstrap字体图标"
+      },
+      {
+        "path": "/androidmanifest.html",
+        "label": "Android Manifest权限大全"
+      },
+      {
+        "path": "/linuxcmd.html",
+        "label": "Linux常用命令大全"
+      }
+    ]
+  }
+]

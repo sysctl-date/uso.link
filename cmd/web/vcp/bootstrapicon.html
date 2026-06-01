@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <style type="text/css">.bs-glyphicons {
+{{ template "head.html" . }}
+
+<body>
+<style type="text/css">.bs-glyphicons {
         margin: 0 -10px 20px;
         overflow: hidden
     }
@@ -65,48 +51,28 @@
             font-size: 12px
         }
     }
-    </style>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
-
-</head>
-<body>{{ template "header.html" . }}
+    </style>{{ template "header.html" . }}
 
 <div class="container">
     <div class="row">
         <div class="col-md-12 col10main">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-                        <li role="presentation"><a href="/useragent.html">常用User-Agent</a></li>
-                        <li role="presentation"><a href="/contenttype.html">Content-Type对照表</a></li>
-                        <li role="presentation"><a href="/requestmethod.html">Request请求大全</a></li>
-                        <li role="presentation"><a href="/httpheader.html">HTTP请求头大全</a></li>
-                        <li role="presentation"><a href="/pagecode.html"> HTTP状态码</a></li>
-                        <li role="presentation"><a href="/asciicode.html">ASCII对照表</a></li>
-                        <li role="presentation" class="active"><a href="/bootstrapicon.html">Bootstrap字体图标</a></li>
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="/htmlescapechar.html">HTML特殊字符转义</a></li>
-                                <li role="presentation"><a href="/ports.html">常见端口大全</a></li>
-                                <li role="presentation"><a href="/androidmanifest.html"> Android Manifest权限大全</a></li>
-                                <li role="presentation"><a href="/linuxcmd.html">Linux常用命令大全</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+
+                    <header class="tool-head">
+                        <h1>Bootstrap Glyphicons 字体图标大全</h1>
+                        <p class="lead">Bootstrap 3 自带 Glyphicon Halflings 字体图标的完整列表，共 260 多个，点开即可对照图标样式和它的 class 名。</p>
+                    </header>
+
+                    <article class="tool-doc">
+                        <h2>怎么使用这些图标</h2>
+                        <p>引入 Bootstrap 3 的 CSS 后，在一个空标签上加对应 class 即可显示图标，例如搜索图标写成
+                            <code>&lt;span class="glyphicon glyphicon-search"&gt;&lt;/span&gt;</code>。每个图标的 class 名见下方方块里的文字。</p>
+                        <p>注意：这套 Glyphicons 只随 Bootstrap 3 提供，<strong>Bootstrap 4 及以后版本已移除</strong>，新项目需改用 Bootstrap Icons、Font Awesome 等独立图标库。为保证可访问性，纯装饰性图标建议加上 <code>aria-hidden="true"</code>。</p>
+                    </article>
+
                     <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <blockquote><p>Bootstrap前端框架Glyphicons字体图标</p>
-                                <footer>
-                                    Bootstrap前端框架Glyphicons字体图标库对照表:Bootstrap前端UI,Glyphicons字体图标调用,Bootstrap按钮字体图标对照表,包括250多个来自Glyphicon
-                                    Halflings的字体图标.项目中引用Bootstrap相关文件后即可直接调用下列图标<code>class="glyphicon
-                                    glyphicon-xxxx"</code></footer>
-                            </blockquote>
-                        </div>
                         <div class="panel-body">
                             <div class="bs-glyphicons">
                                 <ul class="bs-glyphicons-list">

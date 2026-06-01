@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ .title }}</title>
-    <meta name="applicable-device" content="pc,mobile"/>
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="{{ .keywords }}"/>
-    <meta name="description" content="{{ .description }}"/>
-    <meta name="renderer" content="webkit"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
-    <link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/style/tool.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+{{ template "head.html" . }}
 
-</head>
 <body>{{ template "header.html" . }}
 
 <div class="container">
@@ -27,29 +7,11 @@
         <div class="col-md-12">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
-                    <ul class="nav nav-tabs hbflag">
-
-                        <li role="presentation"><a href="/htaccess2nginx.html">htaccess转nginx</a></li>
-
-                        <li role="presentation"><a href="/px2rem.html">rem与px转换工具</a></li>
-
-
-
-                        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                    href="javascript:;" role="button"
-                                                                    aria-haspopup="true" aria-expanded="false">更多工具<span
-                                class="caret"> </span></a>
-                            <ul class="dropdown-menu">
-
-                                <li role="presentation"><a href="/tiaoseban.html">在线调色板</a></li>
-
-
-
-
-
-                                                            </ul>
-                        </li>
-                    </ul>
+                    {{ .siblings }}
+                    <header class="tool-head">
+                        <h1>域名 WHOIS 信息查询</h1>
+                        <p class="lead">输入域名，由服务器向对应的 WHOIS 服务器查询，返回注册商、注册人、注册与到期日期、域名状态、DNS 等公开登记信息。</p>
+                    </header>
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="input-group mb5" style="width:85%"><input class="form-control" type="text"
@@ -84,30 +46,13 @@
                         </form>
                     </div>
                 </div>
-                <div class="alert alert alert-success alert-dismissible"><h4>Whois查询</h4>
-                    <p>Whois
-                        简单来说，就是一个用来查询域名是否已经被注册，以及注册域名的详细信息的数据库（如域名所有人、域名注册商、域名注册日期和过期日期等）。通过域名Whois服务器查询，可以查询域名归属者联系方式，以及注册和到期时间,可以用
-                        {$_SERVER.HTTP_HOST}/whois 访问！</p>
-
-                    <p>关于域名到期删除规则实施的解释：</p>
-
-                    <p>国际域名：</p>
-
-                    <p>(1) 到期当天暂停解析，如果在72小时未续费，则修改域名DNS指向广告页面（停放）。域名到期后30-45天为域名保留期（不同注册商政策规定时间不同）</p>
-
-                    <p>(2) 过了保留期域名将进入赎回期（REDEMPTIONPERIOD，为期30天）</p>
-
-                    <p>(3) 过了赎回期域名将进入为期5天左右的删除期，删除期过后域名开放，任何人可注。</p>
-
-                    <p>关于域名状态的解释：点击查看</p>
-
-                    <p>国内域名：</p>
-
-                    <p>(1) 到期当天暂停解析，如果在72小时未续费，则修改域名DNS指向广告页面（停放）。35天内，可以自动续费。</p>
-
-                    <p>(2) 过期后36－48天，将进入13天的高价赎回期，此期间域名无法管理。</p>
-
-                    <p>(3) 过期后48天后仍未续费的，域名将随时被删除。</p></div>
+                <article class="tool-doc">
+                    <h2>WHOIS 能查到什么</h2>
+                    <p>WHOIS 是各域名注册局维护的公开登记数据库，记录一个域名是否已被注册，以及注册商、注册和到期日期、域名状态、DNS 服务器等信息。注册人姓名、邮箱等联系方式现在多被隐私保护服务遮挡，未必能查到原始内容。查询结果由注册局实时返回，不同后缀（如 .com、.cn）的字段格式略有差异。</p>
+                    <h2 class="sub">域名到期后的删除流程</h2>
+                    <p><strong>国际域名：</strong>到期当天暂停解析，72 小时内未续费通常会把 DNS 指向停放页；之后约 30–45 天为保留期（各注册商规定不一），可正常续费。保留期过后进入约 30 天的赎回期（REDEMPTIONPERIOD），续费需付较高赎回费。赎回期再过约 5 天的删除期，删除完成后域名重新开放注册。</p>
+                    <p><strong>国内域名：</strong>到期当天暂停解析，72 小时内未续费指向停放页，35 天内可续费。过期约 36–48 天进入约 13 天的高价赎回期，期间无法管理域名。过期 48 天后仍未续费，域名将随时被删除并开放注册。</p>
+                </article>
                 <div class="accordion-group"></div>
             </div>
         </div>

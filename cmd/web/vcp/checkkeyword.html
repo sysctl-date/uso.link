@@ -16,11 +16,11 @@
                         <form id="form1help" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-6">
-                                    <input class="form-control" id="txt_url" name="txt_url" type="text" value="{$url}" placeholder="输入要检测的网址，如：http://{$_SERVER.HTTP_HOST}"/>
+                                    <input class="form-control" id="txt_url" name="txt_url" type="text" value="" placeholder="输入要检测的网址，如：http://"/>
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <input class="form-control" id="txt_url" name="txt_keyword" type="text" value="{$keyword}" placeholder="输入关键词"/>
+                                    <input class="form-control" id="txt_url" name="txt_keyword" type="text" value="" placeholder="输入关键词"/>
                                 </div>
 
                                 <div class="col-sm-3">
@@ -34,7 +34,7 @@
                                 <thead>
                                 <tr>
                                     <th class="titcolor" colspan="2">
-                                        网址 {$url} 检测结果
+                                        网址  检测结果
                                     </th>
                                 </tr>
                                 </thead>
@@ -103,17 +103,7 @@
                                     </td>
 
                                     <td>
-                                        {if isset($html_mdjgjs)}
-                                            {if $html_mdjgjs>8}
-                                                <font color="red">关键词密度&gt;2%，密度偏高</font>
-                                            {elseif $html_mdjgjs<2}
-                                                <font color="red">关键词密度&lt;2%，密度偏小</font>
-                                            {else}
-                                                <img src="/static/images/ok.png"> <font color="green">关键词密度在合理范围内</font>
-                                            {/if}
-                                        {else}
-                                        -
-                                        {/if}
+                                        
                                     </td>
                                 </tr>
 

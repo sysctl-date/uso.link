@@ -269,6 +269,17 @@
     bind('.tool .size div', function (n) { size = parseInt(n.getAttribute('data-size'), 10) || 3; });
     bind('.tool .brush div', function (n) { brush = n.getAttribute('data-brush') || 'pen'; });
 
+    // 自定义颜色(原生取色器)
+    var customColor = document.getElementById('customColor');
+    if (customColor) {
+        customColor.addEventListener('input', function () {
+            color = customColor.value;
+            var kids = document.querySelectorAll('.tool .color > *');
+            for (var i = 0; i < kids.length; i++) kids[i].classList.remove('active');
+            if (customColor.parentNode) customColor.parentNode.classList.add('active');
+        });
+    }
+
     // ---------- 对外函数 ----------
     window.clearAll = function () { strokes = []; current = null; renderAll(); };
     window.re_draw = function () { strokes.pop(); renderAll(); };

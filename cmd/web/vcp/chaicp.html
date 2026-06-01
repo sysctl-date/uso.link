@@ -15,28 +15,11 @@
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="input-group mb5" style="width:85%"><input class="form-control" type="text"
-                                                                                  name="icp" id="icp" value="{$url}"
-                                                                                  placeholder="请输入您要查询的域名，如：{$_SERVER.HTTP_HOST}"/><span
+                                                                                  name="icp" id="icp" value=""
+                                                                                  placeholder="请输入您要查询的域名，如："/><span
                                     class="input-group-btn"><button class="btn btn-success" type="submit" id="get_remote">查询ICP备案</button></span>
                             </div>
-                            {if $icp}
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        ICP备案查询结果，域名 <span class="greentag">{$url}</span> ICP备案信息
-                                    </h3>
-                                </div>
-                                    <table class="table table-bordered table-striped">
-                                        {if $code!='200'}
-                                        <tr><td><font color="red">{$icp.msg}</font></td></tr>
-                                        {else/}
-                                        {foreach $icp as $name=>$value}
-                                            <tr><td><span class="lx_name">{$name}</span><span class="lx_value">{$value}</span></td></tr>
-                                        {/foreach}
-                                        {/if}
-                                    </table>
-                            </div>
-                            {/if}
+                            
                             <div class="form-group" style="margin-top:50px">
                                 <div class="col-sm-12"><p>最近查询： </p></div>
                             </div>

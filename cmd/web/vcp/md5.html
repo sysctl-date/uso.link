@@ -50,13 +50,13 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 text-center">
-                                    <button class="btn btn-success" type="submit">
-                                        MD5加密
+                                    <button class="btn btn-success" type="button" onclick="doMd5()">
+                                        计算 MD5
                                     </button>
                                     <span id="copyallcode" class="btn btn-default" data-clipboard-target="#result">
                                                 复制
                                             </span>
-                                    <button type="button" class="btn btn-default" onclick="ClearAll()">
+                                    <button type="button" class="btn btn-default" onclick="clearMd5()">
                                         清空
                                     </button>
                                 </div>
@@ -91,8 +91,22 @@
 </script>
 <script src="/static/script/hightout.js">
 </script>
+<script src="/static/script/pcjs/htpasswd/htpmd5.js"></script>
 <script>
     is_show();
+    function doMd5() {
+        var t = jQuery("#txt_md5").val();
+        var lower = hex_md5(unescape(encodeURIComponent(t)));
+        var upper = lower.toUpperCase();
+        jQuery("#md1").text(upper);
+        jQuery("#md2").text(lower);
+        jQuery("#md3").text(upper.substr(8, 16));
+        jQuery("#md4").text(lower.substr(8, 16));
+    }
+    function clearMd5() {
+        jQuery("#txt_md5").val("");
+        jQuery("#md1,#md2,#md3,#md4").text("");
+    }
 </script>
 {{ template "nav.html" . }} {{ template "footer.html" . }}
 </body>

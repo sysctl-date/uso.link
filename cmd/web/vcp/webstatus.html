@@ -15,37 +15,11 @@
                     <div class="panel">
                         <form id="form1" class="form-horizontal" method="post">
                             <div class="input-group mb5" style="width:85%"><input class="form-control" type="text"
-                                                                                  name="url" id="url" value="{$url}"
-                                                                                  placeholder="输入网址，如:http://{$_SERVER.HTTP_HOST}"/><span
+                                                                                  name="url" id="url" value=""
+                                                                                  placeholder="输入网址，如:http://"/><span
                                     class="input-group-btn"><button class="btn btn-success" type="submit"
                                                                     id="get_remote">查询HTTP状态</button></span></div>
-                            {if $ip}
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <table class="table table-hover table-bordered table-striped">
-                                        <caption><strong>页面 <font color="#0099ff">{$url}</font> 检测结果</strong></caption>
-                                        <tbody>
-                                        <tr>
-                                            <td style="width:150px">服务器IP</td>
-                                            <td><a href="/ip/{$ip}.html" target="_blank">{$ip}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:150px">返回状态码</td>
-                                            <td>{$code}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:150px">网页返回HEAD信息</td>
-                                            <td>{:$head}</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-sm-4"></div>
-                            </div>
-                            {elseif $url}
-                            <div class="form-group"><div class="col-sm-12 text-left"><h3><strong style="color:#c00">网页状态检测失败,可能是域名未解析或网站无法访问</strong></h3></div></div>
-                            {/if}
+                            
                         </form>
                     </div>
                 </div>

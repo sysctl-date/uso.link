@@ -274,6 +274,10 @@
         "label": "UUID在线生成"
       },
       {
+        "path": "/guid.html",
+        "label": "GUID在线生成"
+      },
+      {
         "path": "/htpasswd.html",
         "label": "htpasswd生成"
       },
@@ -454,18 +458,6 @@
       {
         "path": "/dnsusa.html",
         "label": "美国DNS"
-      },
-      {
-        "path": "/ip.html",
-        "label": "IP地址查询"
-      },
-      {
-        "path": "/whois.html",
-        "label": "Whois查询"
-      },
-      {
-        "path": "/webstatus.html",
-        "label": "HTTP状态查询"
       }
     ]
   },
@@ -483,26 +475,6 @@
       {
         "path": "/tiaoseban.html",
         "label": "在线调色板"
-      },
-      {
-        "path": "/checkurl.html",
-        "label": "网站死链检测"
-      },
-      {
-        "path": "/chaicp.html",
-        "label": "ICP备案查询"
-      },
-      {
-        "path": "/gzip.html",
-        "label": "Gzip压缩检测"
-      },
-      {
-        "path": "/checkkeyword.html",
-        "label": "关键词密度检测"
-      },
-      {
-        "path": "/checkweixin.html",
-        "label": "微信域名检测"
       },
       {
         "path": "/shortcut.html",

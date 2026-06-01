@@ -4,7 +4,7 @@
 <div class="container"><div class="row"><div class="col-md-12"><div class="accordion" id="accordion2"><div class="accordion-group"><!-- <div><a href="https://www.aliyun.com/minisite/goods?userCode=eaborev5" target="_blank" rel="nofollow"><img src="http://uso.link/static/images/ali.jpg"></a></div> -->
 {{ .siblings }}<header class="tool-head"><h1>在线涂鸦画板</h1><p class="lead">在浏览器里随手画几笔。笔迹用 1€ 滤波去抖、按运笔速度自动变粗细，起收笔自然收锋；可切换钢笔、毛笔、马克笔、铅笔四种笔触，画完一键存成 PNG。</p></header><div class="panel">
 
-<div style="width: 100%;"><canvas id="canvas" width="1000" height="500">您的浏览器不支持CANVAS</canvas></div>
+<div class="canvas-wrap"><canvas id="canvas" width="1000" height="500">您的浏览器不支持CANVAS</canvas></div>
 			<div class="tool">
 				<div class="color">
 					<div style="background:#000;" data-color="#000" class="active"></div>
@@ -15,6 +15,7 @@
 					<div style="background:#0ff;" data-color="#0ff"></div>
 					<div style="background:#f0f;" data-color="#f0f"></div>
 					<div style="background:#fff;" data-color="#fff"></div>
+					<label class="custom" title="自定义颜色"><input type="color" id="customColor" value="#8a3ffc"></label>
 				</div>
 				
 				<div class="size">
@@ -59,11 +60,16 @@
 			</script>
  
  <style>
-.tool{position:absolute; top:120px; left:16px; border:1px solid #e4e4de; background:#fff; border-radius:10px; padding:8px 8px 4px;}
+.panel{display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;}
+.tool{position:static; order:0; flex:0 0 170px; width:170px; border:1px solid #e4e4de; background:#fff; border-radius:10px; padding:8px 8px 4px;}
+.canvas-wrap{order:1; flex:1 1 340px; min-width:0;}
 .tool .color{float:left; margin:4px; width:32px;}
 .tool .color div{width:26px; height:26px; border:2px solid #d2d2c9; border-radius:6px; margin-bottom:5px; opacity:.55; cursor:pointer;}
 .tool .color div:hover{opacity:1;}
 .tool .color .active{opacity:1; border-color:#26262a;}
+.tool .color .custom{display:block; width:26px; height:26px; border:2px dashed #c9bfae; border-radius:6px; margin-bottom:5px; padding:0; overflow:hidden; position:relative; cursor:pointer;}
+.tool .color .custom.active{border-style:solid; border-color:#26262a;}
+.tool .color .custom input{position:absolute; top:-8px; left:-8px; width:44px; height:44px; border:0; padding:0; margin:0; background:none; cursor:pointer;}
 
 .tool .size{float:left; margin:4px 4px 4px 0; width:34px;}
 .tool .size div{width:32px; height:30px; border:2px solid #d2d2c9; border-radius:6px; margin-bottom:5px; opacity:.55; cursor:pointer; display:flex; align-items:center; justify-content:center;}
@@ -77,8 +83,8 @@
 .tool .brush .active{color:#fff; background:#26262a; border-color:#26262a;}
 
 .btntool {clear:both; margin-bottom:5px; text-align:center;}
-.btntool input {padding:4px 14px;}
-#canvas {border:1px solid #e4e4de; border-radius:10px; width:100%; background:#fff; touch-action:none; cursor:crosshair;}
+.btntool input {padding:4px 14px; width:100%;}
+#canvas {border:1px solid #e4e4de; border-radius:10px; width:100%; background:#fff; touch-action:none; cursor:crosshair; display:block;}
 </style>
  {{ template "nav.html" . }}
 

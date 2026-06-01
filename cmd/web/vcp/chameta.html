@@ -38,8 +38,8 @@
                         <form id="form1help" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="txt_url" name="txt_url" type="text" value="{$url}"
-                                           placeholder="输入要查询的网址，如：http://{$_SERVER.HTTP_HOST}"/>
+                                    <input class="form-control" id="txt_url" name="txt_url" type="text" value=""
+                                           placeholder="输入要查询的网址，如：http://"/>
                                 </div>
 
                                 <div class="col-sm-3">
@@ -74,17 +74,13 @@
                                     </td>
 
                                     <td>
-                                        {if $title}{$title}{elseif $url}<font color="red">标题,获取失败</font>{else/}-{/if}
+                                        
                                     </td>
                                     <td>
-                                        <font color="red">{$title_len}</font> 个字符
+                                        <font color="red"></font> 个字符
                                     </td>
                                     <td>
-                                        {if $title_len<81}
-                                        <font color="green">标题字符数量在合理范围</font>
-                                        {else/}
-                                        <font color="red">标题过长，建议不要超过80字符</font>
-                                        {/if}
+                                        
                                     </td>
                                 </tr>
                                 <tr>
@@ -92,17 +88,13 @@
                                         网页关键词（KeyWords）
                                     </td>
                                     <td>
-                                        {if $keywords}{$keywords}{elseif $url}<font color="red">关键字,获取失败</font>{else/}-{/if}
+                                        
                                     </td>
                                     <td>
-                                        <font color="red">{$keywords_len}</font> 个字符
+                                        <font color="red"></font> 个字符
                                     </td>
                                     <td>
-                                        {if $keywords_len<101}
-                                        <font color="green">关键字数在合理范围</font>
-                                        {else/}
-                                        <font color="red">关键词过多，建议不要超过100字符</font>
-                                        {/if}
+                                        
                                     </td>
                                 </tr>
                                 <tr>
@@ -110,17 +102,13 @@
                                         内容描述（Description）
                                     </td>
                                     <td>
-                                        {if $description}{$description}{elseif $url}<font color="red">内容描述,获取失败</font>{else/}-{/if}
+                                        
                                     </td>
                                     <td>
-                                        <font color="red">{$description_len}</font> 个字符
+                                        <font color="red"></font> 个字符
                                     </td>
                                     <td>
-                                        {if $description_len<201}
-                                        <font color="green">描述内容长度在合理范围</font>
-                                        {else/}
-                                        <font color="red">描述内容过长，建议不要超过200字符</font>
-                                        {/if}
+                                        
                                     </td>
                                 </tr>
                                 </tbody>
